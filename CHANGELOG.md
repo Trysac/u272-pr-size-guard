@@ -9,4 +9,5 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
+- Added pr_size_guard: reviewable line counting, thresholds, ignore patterns, and slice suggestions from git numstat/unified diffs.
 - Initial project structure from the factory utility template.

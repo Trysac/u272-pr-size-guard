@@ -2,22 +2,19 @@
 
 ## Used
 
-| Tool | Why |
+The implementation uses the Python standard library only; there are no runtime dependencies.
+
+| Area | Used in code |
 |---|---|
-| Python >= 3.10 | Widest supported range that still allows modern typing syntax. |
-| uv | Fast, reproducible environments and builds on Windows and Linux. |
-| hatchling | Simple, standards-based build backend; no setup.py. |
-| ruff | Lint and format in one fast tool. |
-| mypy (strict) | Catches type errors before release; the package ships `py.typed`. |
-| pytest + pytest-cov | De facto standard test runner with branch coverage. |
-| gitleaks | Secret scanning locally and in CI. |
-| GitHub Actions + Dependabot | Thin CI wrapper over the local gates; weekly dependency updates. |
+| Python 3.10+ | Type syntax such as `str | None`, `tuple[str, ...]`, and `list[FileChange]`. |
+| `argparse` | CLI parsing in `src/pr_size_guard/__main__.py`. |
+| `dataclasses` | Frozen `FileChange`, `Assessment`, and `Slice` value objects. |
+| `fnmatch` | Basename matching for ignore patterns without `/`. |
+| `logging` | Module logger with a `NullHandler`. |
+| `re` | Fixed-pattern rename cleanup in `_resolve_rename`. |
+| `typing` | `Literal` annotations for status and error code. |
+| `pytest` | Tests in `tests/test_pr_size_guard.py`. |
 
 ## Discarded
 
-| Tool | Why not |
-|---|---|
-| Poetry | Slower, and uv covers the same needs with standard dependency groups. |
-| black + isort + flake8 | Replaced by ruff: one tool instead of three. |
-| tox / nox | The OS matrix lives in CI; locally a single `scripts/check.py` is enough. |
-| Shell scripts for gates | Not portable to Windows; the gates are a stdlib Python script. |
+No discarded alternatives are recorded in the code or specification for this snapshot. The library does not call git or the GitHub API and does not require a third-party runtime package.
