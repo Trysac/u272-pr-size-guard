@@ -19,6 +19,9 @@ classifiers = [
 ]
 dependencies = []
 
+[project.scripts]
+pr-size-guard = "pr_size_guard.__main__:main"
+
 [project.urls]
 Homepage = "https://github.com/Trysac/u272-pr-size-guard"
 Source = "https://github.com/Trysac/u272-pr-size-guard"
